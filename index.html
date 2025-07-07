@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Carousel to showcase CloudHawks Data services -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CloudHawks Services Carousel</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+    }
+
+    /* Wrapper with background gradient (Itera Process Colour Palette) */
+    .carousel-wrapper {
+      /* Itera Process Colour Palette */
+      background: linear-gradient(to right, #01334e, #03607b, #51b7cf);
+      padding-bottom: 20px;
+    }
+
+    /* Main container */
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      height: 400px;
+      width: 100%;
+    }
+
+    /* Inner carousel slides container */
+    .carousel-inner {
+      display: flex;
+      transition: transform 1s ease-in-out;
+      height: 100%;
+    }
+
+    /* Each carousel slide */
+    .carousel-item {
+      min-width: 100%;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    /*  Text animation */
+    .carousel-content h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      max-width: 80%;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Carousel controls */
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 20px;
+      pointer-events: none; /* allows arrows to float over content, very important */
+    }
+
+    /* Navigation buttons */
+    .control-btn {
+      background-color: rgba(0,0,0,0.5);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      pointer-events: auto;
+      border-radius: 50%;
+      padding: 10px 15px;
+    }
+
+    .control-btn:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    /* Slide indicator dots */
+    .carousel-indicators {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 6px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background-color: white;
+    }
+  </style>
+</head>
+<body>
+  <!-- Carousel section with background gradient -->
+  <div class="carousel-wrapper">
+    <div class="carousel">
+      <!-- Carousel slides -->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="carousel-content">
+            <h2>AI-Driven Data Transformation</h2>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-content">
+            <h2>Advanced Analytics and Insights</h2>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-content">
+            <h2>Cloud Native and AWS Data Solutions</h2>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-content">
+            <h2>Data Governance & Compliance</h2>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-content">
+            <h2>Data Engineering and DataOps</h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel arrow controls -->
+      <div class="carousel-controls">
+        <button class="control-btn" onclick="showPrevSlide()">&#10094;</button>
+        <button class="control-btn" onclick="showNextSlide()">&#10095;</button>
+      </div>
+    </div>
+
+    <!-- Carousel indicator dots -->
+    <div class="carousel-indicators">
+      <span class="dot active" onclick="goToSlide(0)"></span>
+      <span class="dot" onclick="goToSlide(1)"></span>
+      <span class="dot" onclick="goToSlide(2)"></span>
+      <span class="dot" onclick="goToSlide(3)"></span>
+      <span class="dot" onclick="goToSlide(4)"></span>
+    </div>
+  </div>
+
+  <!-- JS  -->
+  <script>
+    let currentIndex = 0;
+    const items = document.querySelectorAll('.carousel-item');
+    const totalItems = items.length;
+    const carouselInner = document.querySelector('.carousel-inner');
+    const dots = document.querySelectorAll('.dot');
+    let autoSlideTimeout;
+
+    // Update the visible slide and the active dot
+    function updateSlide() {
+      carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    }
+
+    // Show the next slide
+    function showNextSlide() {
+      currentIndex = (currentIndex + 1) % totalItems;
+      updateSlide();
+      resetAutoSlide(); // restart timer
+    }
+
+    // Show the previous slide
+    function showPrevSlide() {
+      currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+      updateSlide();
+      resetAutoSlide(); // restart timer
+    }
+
+    // Go to a specific slide 
+    function goToSlide(index) {
+      currentIndex = index;
+      updateSlide();
+      resetAutoSlide(); // restart timer
+    }
+
+    // Clear and restart the auto-slide timer, it resets every 5 seconds
+    //Without this, the carousel would not auto-slide, and if slides are clicked, it would not reset the timer
+    function resetAutoSlide() {
+      clearTimeout(autoSlideTimeout);
+      autoSlideTimeout = setTimeout(showNextSlide, 5000);
+    }
+
+    // Initialize auto-slide
+    resetAutoSlide();
+  </script>
+
+</body>
+</html>
