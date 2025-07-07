@@ -1,54 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Carousel to showcase CloudHawks Data services -->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CloudHawks Services Carousel</title>
   <style>
-    /* Reset and force full width */
-    html, body {
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      width: 100vw;
-      overflow-x: hidden;
+    }
+
+    body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #000;
     }
 
-    /* Full-width responsive wrapper with gradient */
+    /* Wrapper with background gradient (Itera Process Colour Palette) */
     .carousel-wrapper {
-      width: 100%;
-      background: linear-gradient(to right, #01334e, #03607b, #51b7cf); /* Itera Process Colour Palette */
+      /* Itera Process Colour Palette */
+      background: linear-gradient(to right, #01334e, #03607b, #51b7cf);
       padding-bottom: 20px;
     }
 
+    /* Main container */
     .carousel {
       position: relative;
       overflow: hidden;
+      height: 400px;
       width: 100%;
-      height: 45vh; /* responsive height */
-      max-height: 400px;
     }
 
+    /* Inner carousel slides container */
     .carousel-inner {
       display: flex;
       transition: transform 1s ease-in-out;
       height: 100%;
     }
 
+    /* Each carousel slide */
     .carousel-item {
       min-width: 100%;
-      height: 100%;
+      height: 400px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
     }
 
+    /*  Text animation */
     .carousel-content h2 {
-      font-size: clamp(1.5rem, 5vw, 2.5rem); /* responsive text size */
+      font-size: 2.5rem;
       text-align: center;
-      max-width: 90%;
+      max-width: 80%;
       animation: fadeIn 1s ease-in-out;
     }
 
@@ -57,6 +62,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Carousel controls */
     .carousel-controls {
       position: absolute;
       top: 50%;
@@ -65,11 +71,12 @@
       justify-content: space-between;
       transform: translateY(-50%);
       padding: 0 20px;
-      pointer-events: none;
+      pointer-events: none; /* allows arrows to float over content, very important */
     }
 
+    /* Navigation buttons */
     .control-btn {
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0,0,0,0.5);
       border: none;
       color: white;
       font-size: 2rem;
@@ -80,9 +87,10 @@
     }
 
     .control-btn:hover {
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0,0,0,0.8);
     }
 
+    /* Slide indicator dots */
     .carousel-indicators {
       text-align: center;
       margin-top: 15px;
@@ -102,30 +110,13 @@
     .dot.active {
       background-color: white;
     }
-
-    /* Optional: prevent zoom on mobile double-tap */
-    @viewport {
-      user-zoom: fixed;
-    }
-
-    /* Fix for iOS Safari full width */
-    @media screen and (max-width: 600px) {
-      .carousel {
-        height: 50vh;
-      }
-
-      .carousel-content h2 {
-        font-size: clamp(1.2rem, 6vw, 2rem);
-      }
-    }
   </style>
 </head>
 <body>
-
-  <!-- Carousel wrapper -->
+  <!-- Carousel section with background gradient -->
   <div class="carousel-wrapper">
     <div class="carousel">
-      <!-- Slides -->
+      <!-- Carousel slides -->
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="carousel-content">
@@ -154,14 +145,14 @@
         </div>
       </div>
 
-      <!-- Arrows -->
+      <!-- Carousel arrow controls -->
       <div class="carousel-controls">
         <button class="control-btn" onclick="showPrevSlide()">&#10094;</button>
         <button class="control-btn" onclick="showNextSlide()">&#10095;</button>
       </div>
     </div>
 
-    <!-- Dots -->
+    <!-- Carousel indicator dots -->
     <div class="carousel-indicators">
       <span class="dot active" onclick="goToSlide(0)"></span>
       <span class="dot" onclick="goToSlide(1)"></span>
@@ -171,7 +162,7 @@
     </div>
   </div>
 
-  <!-- JS Carousel Logic -->
+  <!-- JS  -->
   <script>
     let currentIndex = 0;
     const items = document.querySelectorAll('.carousel-item');
@@ -180,6 +171,7 @@
     const dots = document.querySelectorAll('.dot');
     let autoSlideTimeout;
 
+    // Update the visible slide and the active dot
     function updateSlide() {
       carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
       dots.forEach((dot, index) => {
@@ -187,31 +179,37 @@
       });
     }
 
+    // Show the next slide
     function showNextSlide() {
       currentIndex = (currentIndex + 1) % totalItems;
       updateSlide();
-      resetAutoSlide();
+      resetAutoSlide(); // restart timer
     }
 
+    // Show the previous slide
     function showPrevSlide() {
       currentIndex = (currentIndex - 1 + totalItems) % totalItems;
       updateSlide();
-      resetAutoSlide();
+      resetAutoSlide(); // restart timer
     }
 
+    // Go to a specific slide 
     function goToSlide(index) {
       currentIndex = index;
       updateSlide();
-      resetAutoSlide();
+      resetAutoSlide(); // restart timer
     }
 
+    // Clear and restart the auto-slide timer, it resets every 5 seconds
+    //Without this, the carousel would not auto-slide, and if slides are clicked, it would not reset the timer
     function resetAutoSlide() {
       clearTimeout(autoSlideTimeout);
       autoSlideTimeout = setTimeout(showNextSlide, 5000);
     }
 
-    // Start auto sliding
+    // Initialize auto-slide
     resetAutoSlide();
   </script>
+
 </body>
 </html>
