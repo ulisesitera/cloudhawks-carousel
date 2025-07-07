@@ -13,7 +13,6 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #000;
     }
 
     .carousel-wrapper {
@@ -100,6 +99,11 @@
     .dot.active {
       background-color: white;
     }
+
+    html, body {
+      height: auto;
+      overflow: hidden;
+    }
   </style>
 </head>
 <body>
@@ -161,7 +165,7 @@
     let autoSlideTimeout;
 
     function updateSlide() {
-        carouselInner.style.transform = translateX(-${currentIndex * 100}%);
+        carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
         dots.forEach((dot, index) => {
         dot.classList.toggle('active', index === currentIndex);
         });
