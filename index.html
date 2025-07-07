@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Carousel to showcase CloudHawks Data services -->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -17,14 +16,11 @@
       background-color: #000;
     }
 
-    /* Wrapper with background gradient (Itera Process Colour Palette) */
     .carousel-wrapper {
-      /* Itera Process Colour Palette */
       background: linear-gradient(to right, #01334e, #03607b, #51b7cf);
       padding-bottom: 20px;
     }
 
-    /* Main container */
     .carousel {
       position: relative;
       overflow: hidden;
@@ -32,14 +28,12 @@
       width: 100%;
     }
 
-    /* Inner carousel slides container */
     .carousel-inner {
       display: flex;
       transition: transform 1s ease-in-out;
       height: 100%;
     }
 
-    /* Each carousel slide */
     .carousel-item {
       min-width: 100%;
       height: 400px;
@@ -49,7 +43,6 @@
       color: white;
     }
 
-    /*  Text animation */
     .carousel-content h2 {
       font-size: 2.5rem;
       text-align: center;
@@ -62,7 +55,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Carousel controls */
     .carousel-controls {
       position: absolute;
       top: 50%;
@@ -71,10 +63,9 @@
       justify-content: space-between;
       transform: translateY(-50%);
       padding: 0 20px;
-      pointer-events: none; /* allows arrows to float over content, very important */
+      pointer-events: none;
     }
 
-    /* Navigation buttons */
     .control-btn {
       background-color: rgba(0,0,0,0.5);
       border: none;
@@ -90,7 +81,6 @@
       background-color: rgba(0,0,0,0.8);
     }
 
-    /* Slide indicator dots */
     .carousel-indicators {
       text-align: center;
       margin-top: 15px;
@@ -113,10 +103,10 @@
   </style>
 </head>
 <body>
-  <!-- Carousel section with background gradient -->
+
+  <!-- WRAPPER con fondo degradado -->
   <div class="carousel-wrapper">
     <div class="carousel">
-      <!-- Carousel slides -->
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="carousel-content">
@@ -145,14 +135,14 @@
         </div>
       </div>
 
-      <!-- Carousel arrow controls -->
+      <!-- Carousel buttons -->
       <div class="carousel-controls">
         <button class="control-btn" onclick="showPrevSlide()">&#10094;</button>
         <button class="control-btn" onclick="showNextSlide()">&#10095;</button>
       </div>
     </div>
 
-    <!-- Carousel indicator dots -->
+    <!-- Indicadores (ahora dentro del wrapper con fondo) -->
     <div class="carousel-indicators">
       <span class="dot active" onclick="goToSlide(0)"></span>
       <span class="dot" onclick="goToSlide(1)"></span>
@@ -162,7 +152,6 @@
     </div>
   </div>
 
-  <!-- JS  -->
   <script>
     let currentIndex = 0;
     const items = document.querySelectorAll('.carousel-item');
@@ -171,43 +160,37 @@
     const dots = document.querySelectorAll('.dot');
     let autoSlideTimeout;
 
-    // Update the visible slide and the active dot
     function updateSlide() {
-      carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
-      dots.forEach((dot, index) => {
+        carouselInner.style.transform = translateX(-${currentIndex * 100}%);
+        dots.forEach((dot, index) => {
         dot.classList.toggle('active', index === currentIndex);
-      });
+        });
     }
 
-    // Show the next slide
     function showNextSlide() {
-      currentIndex = (currentIndex + 1) % totalItems;
-      updateSlide();
-      resetAutoSlide(); // restart timer
+        currentIndex = (currentIndex + 1) % totalItems;
+        updateSlide();
+        resetAutoSlide();
     }
 
-    // Show the previous slide
     function showPrevSlide() {
-      currentIndex = (currentIndex - 1 + totalItems) % totalItems;
-      updateSlide();
-      resetAutoSlide(); // restart timer
+        currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+        updateSlide();
+        resetAutoSlide();
     }
 
-    // Go to a specific slide 
     function goToSlide(index) {
-      currentIndex = index;
-      updateSlide();
-      resetAutoSlide(); // restart timer
+        currentIndex = index;
+        updateSlide();
+        resetAutoSlide();
     }
 
-    // Clear and restart the auto-slide timer, it resets every 5 seconds
-    //Without this, the carousel would not auto-slide, and if slides are clicked, it would not reset the timer
     function resetAutoSlide() {
-      clearTimeout(autoSlideTimeout);
-      autoSlideTimeout = setTimeout(showNextSlide, 5000);
+        clearTimeout(autoSlideTimeout);
+        autoSlideTimeout = setTimeout(showNextSlide, 5000);
     }
 
-    // Initialize auto-slide
+    // Start the auto-slide initially
     resetAutoSlide();
   </script>
 
