@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CloudHawks Services Carousel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -12,7 +13,7 @@
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
     .carousel-wrapper {
@@ -24,7 +25,7 @@
       position: relative;
       overflow: hidden;
       min-height: 300px;
-      height: 50vh; /* 50% de la altura de la pantalla */
+      height: 50vh;
       max-height: 600px;
       width: 100%;
     }
@@ -36,6 +37,7 @@
       align-items: center;
       justify-content: center;
       color: white;
+      padding: 20px;
     }
 
     .carousel-inner {
@@ -44,12 +46,48 @@
       height: 100%;
     }
 
-    .carousel-content h2 {
-      font-size: 2.5rem;
-      text-align: center;
-      max-width: 80%;
+    .carousel-content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+      max-width: 1100px;
+      gap: 20px;
+    }
+
+    .text-block {
+      flex: 1;
+    }
+
+    .text-block h2 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      text-align: left;
       animation: fadeIn 1s ease-in-out;
     }
+
+    .text-block p {
+      font-size: 1.1rem;
+      text-align: left;
+      line-height: 1.5;
+    }
+
+    .image-block {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 200px;
+    }
+
+    .image-block img {
+      max-width: 100%;
+      height: 200px; 
+      object-fit: cover; 
+      border-radius: 10px;
+    }
+
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
@@ -109,37 +147,91 @@
       height: auto;
       overflow-x: hidden;
     }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .carousel-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .text-block h2 {
+        font-size: 1.5rem;
+        text-align: center;
+      }
+
+      .text-block p {
+        font-size: 1rem;
+        text-align: center;
+      }
+
+      .image-block {
+        margin-top: 10px;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- WRAPPER con fondo degradado -->
   <div class="carousel-wrapper">
     <div class="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="carousel-content">
-            <h2>AI-Driven Data Transformation</h2>
+            <div class="text-block">
+              <h2>AI-Driven Data Transformation</h2>
+              <p>Convierte tus datos en decisiones con inteligencia artificial. Impulsa tu negocio con análisis avanzados y predicciones accionables, apoyado por el poder de la nube y tecnologías de IA que convierten la información en valor real.</p>
+            </div>
+            <div class="image-block">
+              <img src="Cloud4.png" alt="Cloud Illustration" />
+            </div>
           </div>
         </div>
         <div class="carousel-item">
           <div class="carousel-content">
-            <h2>Advanced Analytics and Insights</h2>
+            <div class="text-block">
+              <h2>Advanced Analytics and Insights</h2>
+              <p>Convierte tus datos en decisiones con inteligencia artificial. Impulsa tu negocio con análisis avanzados y predicciones accionables, apoyado por el poder de la nube y tecnologías de IA que convierten la información en valor real.</p>
+            </div>
+            <div class="image-block">
+              <img src="Cloud5.png" alt="Cloud Illustration" />
+            </div>
           </div>
         </div>
         <div class="carousel-item">
           <div class="carousel-content">
-            <h2>Cloud Native and AWS Data Solutions</h2>
+            <div class="text-block">
+              <h2>Cloud Native and AWS Data Solutions</h2>
+              <p>Convierte tus datos en decisiones con inteligencia artificial. Impulsa tu negocio con análisis avanzados y predicciones accionables, apoyado por el poder de la nube y tecnologías de IA que convierten la información en valor real.</p>
+            </div>
+            <div class="image-block">
+              <img src="Cloud6.png" alt="Cloud Illustration" />
+            </div>
           </div>
         </div>
         <div class="carousel-item">
           <div class="carousel-content">
-            <h2>Data Governance & Compliance</h2>
+            <div class="text-block">
+              <h2>Data Governance & Compliance</h2>
+              <p>Convierte tus datos en decisiones con inteligencia artificial. Impulsa tu negocio con análisis avanzados y predicciones accionables, apoyado por el poder de la nube y tecnologías de IA que convierten la información en valor real.</p>
+            </div>
+            <div class="image-block">
+              <img src="Cloud4.png" alt="Cloud Illustration" />
+            </div>
           </div>
         </div>
         <div class="carousel-item">
           <div class="carousel-content">
-            <h2>Data Engineering and DataOps</h2>
+            <div class="carousel-content">
+            <div class="text-block">
+              <h2>Data Engineering and DataOps</h2>
+              <p>Convierte tus datos en decisiones con inteligencia artificial. Impulsa tu negocio con análisis avanzados y predicciones accionables, apoyado por el poder de la nube y tecnologías de IA que convierten la información en valor real.</p>
+            </div>
+            <div class="image-block">
+              <img src="Cloud6.png" alt="Cloud Illustration" />
+            </div>
+          </div>
           </div>
         </div>
       </div>
