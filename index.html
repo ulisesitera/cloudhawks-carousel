@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CloudHawks Services Carousel</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;900&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -36,7 +36,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
+      color: #05334F;
       padding: 20px;
     }
 
@@ -54,6 +54,7 @@
       width: 100%;
       max-width: 900px;
       gap: 20px;
+      padding-left: 60px;
     }
 
     .text-block {
@@ -65,15 +66,24 @@
       font-size: 1.6rem;
       margin-bottom: 10px;
       text-align: left;
-      animation: fadeIn 1s ease-in-out;
+      font-weight: 900;
+    }
+
+    .text-block h2 a {
+      font-weight: 900;
     }
 
     .text-block p {
       font-size: 0.9rem;
       text-align: left;
       line-height: 1.5;
+      font-weight: 500;
     }
 
+    .animate {
+      animation: fadeIn 2s ease-in-out;
+    }
+    
     .image-block {
       flex: 1;
       display: flex;
@@ -122,8 +132,11 @@
     }
 
     .carousel-indicators {
+      position: absolute;
+      bottom: 15px;
+      width: 100%;
       text-align: center;
-      margin-top: 15px;
+      z-index: 10;
     }
 
     .dot {
@@ -148,30 +161,6 @@
       height: auto;
       overflow-x: hidden;
     }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .carousel-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .text-block h2 {
-        font-size: 1.5rem;
-        text-align: center;
-      }
-
-      .text-block p {
-        font-size: 1rem;
-        text-align: center;
-      }
-
-      .image-block {
-        margin-top: 10px;
-      }
-    }
-
     .bg-1 {
       background-image: url('https://raw.githubusercontent.com/ulisesitera/cloudhawks-carousel/main/FONDO3.jpg');
       background-size: cover;
@@ -190,6 +179,41 @@
       background-position: center;
     }
 
+    @media (max-width: 768px) {
+      .carousel-content {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .text-block {
+        padding-left: 0;
+        text-align: center;
+      }
+
+      .image-block img {
+        width: 100%;
+        height: auto;
+      }
+
+      .carousel-item {
+        padding: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .text-block h2 {
+        font-size: 1.4rem;
+      }
+
+      .text-block p {
+        font-size: 0.8rem;
+      }
+
+      .image-block img {
+        height: 150px; 
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -201,7 +225,7 @@
           <div class="carousel-content">
             <div class="text-block">
               <h2>
-                <a href="https://sites.google.com/iteraprocess.com/itera-data-analytics/servicios/ai-driven-data-transformation" target="_blank" style="color: white; text-decoration: none;">
+                <a href="https://sites.google.com/iteraprocess.com/itera-data-analytics/servicios/ai-driven-data-transformation" target="_blank" style="color: #026079; text-decoration: none;">
                   AI-Driven Data Transformation
                 </a>
               </h2>
@@ -216,7 +240,7 @@
           <div class="carousel-content">
             <div class="text-block">
               <h2>
-                <a href="https://sites.google.com/iteraprocess.com/itera-data-analytics/servicios/advanced-analytics-and-insights" target="_blank" style="color: white; text-decoration: none;">
+                <a href="https://sites.google.com/iteraprocess.com/itera-data-analytics/servicios/advanced-analytics-and-insights" target="_blank" style="color: #026079; text-decoration: none;">
                   Advanced Analytics and Insights
                 </a>
               </h2>
@@ -231,7 +255,7 @@
           <div class="carousel-content">
             <div class="text-block">
               <h2>
-                <a href="https://sites.google.com/iteraprocess.com/itera-data-analytics/servicios/cloud-native-and-aws-data-solutions" target="_blank" style="color: white; text-decoration: none;">
+                <a href="https://sites.google.com/iteraprocess.com/itera-data-analytics/servicios/cloud-native-and-aws-data-solutions" target="_blank" style="color: #026079; text-decoration: none;">
                   Cloud Native and AWS Data Solutions
                 </a>
               </h2>
@@ -246,7 +270,7 @@
           <div class="carousel-content">
             <div class="text-block">
               <h2>
-                <a href="https://sites.google.com/iteraprocess.com/itera-data-analytics/servicios/data-governance-and-compliance" target="_blank" style="color: white; text-decoration: none;">
+                <a href="https://sites.google.com/iteraprocess.com/itera-data-analytics/servicios/data-governance-and-compliance" target="_blank" style="color: #026079; text-decoration: none;">
                   Data Governance & Compliance
                 </a>
               </h2>
@@ -262,7 +286,7 @@
             <div class="carousel-content">
             <div class="text-block">
               <h2>
-                <a href="https://sites.google.com/iteraprocess.com/itera-data-analytics/servicios/data-engineering-and-dataops" target="_blank" style="color: white; text-decoration: none;">
+                <a href="https://sites.google.com/iteraprocess.com/itera-data-analytics/servicios/data-engineering-and-dataops" target="_blank" style="color: #026079; text-decoration: none;">
                   Data Engineering and DataOps
                 </a>
               </h2>
@@ -281,15 +305,14 @@
         <button class="control-btn" onclick="showPrevSlide()">&#10094;</button>
         <button class="control-btn" onclick="showNextSlide()">&#10095;</button>
       </div>
-    </div>
-
-    <!-- Indicadores (ahora dentro del wrapper con fondo) -->
-    <div class="carousel-indicators">
-      <span class="dot active" onclick="goToSlide(0)"></span>
-      <span class="dot" onclick="goToSlide(1)"></span>
-      <span class="dot" onclick="goToSlide(2)"></span>
-      <span class="dot" onclick="goToSlide(3)"></span>
-      <span class="dot" onclick="goToSlide(4)"></span>
+      
+       <div class="carousel-indicators">
+        <span class="dot active" onclick="goToSlide(0)"></span>
+        <span class="dot" onclick="goToSlide(1)"></span>
+        <span class="dot" onclick="goToSlide(2)"></span>
+        <span class="dot" onclick="goToSlide(3)"></span>
+        <span class="dot" onclick="goToSlide(4)"></span>
+      </div>
     </div>
   </div>
 
@@ -306,6 +329,16 @@
         dots.forEach((dot, index) => {
         dot.classList.toggle('active', index === currentIndex);
         });
+
+        items.forEach(item => {
+            item.querySelector('.text-block h2')?.classList.remove('animate');
+            item.querySelector('.text-block p')?.classList.remove('animate');
+        });
+
+        void items[currentIndex].offsetWidth;
+
+        items[currentIndex].querySelector('.text-block h2')?.classList.add('animate');
+        items[currentIndex].querySelector('.text-block p')?.classList.add('animate');
     }
 
     function showNextSlide() {
@@ -331,7 +364,6 @@
         autoSlideTimeout = setTimeout(showNextSlide, 5000);
     }
 
-    // Start the auto-slide initially
     resetAutoSlide();
   </script>
 
