@@ -1,371 +1,371 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CloudHawks Services Carousel</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;900&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>CloudHawks Services Carousel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;900&display=swap" rel="stylesheet">
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
+      body {
+        font-family: 'Poppins', sans-serif;
+      }
 
-    .carousel-wrapper {
-      padding-bottom: 20px;
-    }
+      .carousel-wrapper {
+        padding-bottom: 20px;
+      }
 
-    .carousel {
-      position: relative;
-      overflow: hidden;
-      min-height: 300px;
-      height: 50vh;
-      max-height: 600px;
-      width: 100%;
-    }
-    
-    .carousel-item {
-      position: relative;
-      min-width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #05334F;
-      padding: 20px;
-    }
-
-    .carousel-inner {
-      display: flex;
-      transition: transform 1s ease-in-out;
-      height: 100%;
-    }
-
-    .carousel-content {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: flex-start;
-      width: 100%;
-      max-width: 900px;
-      gap: 20px;
-      padding-left: 60px;
-    }
-
-    .text-block {
-      flex: 1;
-      padding-left: 40px;
-    }
-
-    .text-block h2 {
-      font-size: 1.6rem;
-      margin-bottom: 10px;
-      text-align: left;
-      font-weight: 900;
-    }
-
-    .text-block h2 a {
-      font-weight: 900;
-    }
-
-    .text-block p {
-      font-size: 0.9rem;
-      text-align: left;
-      line-height: 1.5;
-      font-weight: 500;
-    }
-
-    .animate {
-      animation: fadeIn 2s ease-in-out;
-    }
-    
-    .image-block {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 200px;
-    }
-
-    .image-block img {
-      max-width: 100%;
-      height: 200px; 
-      object-fit: cover; 
-      border-radius: 10px;
-    }
-
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .carousel-controls {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      padding: 0 20px;
-      pointer-events: auto;
-    }
-
-    .control-btn {
-      background-color: rgba(0,0,0,0.5);
-      border: none;
-      color: white;
-      font-size: 2rem;
-      cursor: pointer;
-      pointer-events: auto;
-      border-radius: 50%;
-      padding: 10px 15px;
-    }
-
-    .control-btn:hover {
-      background-color: rgba(0,0,0,0.8);
-    }
-
-    .carousel-indicators {
-      position: absolute;
-      bottom: 15px;
-      width: 100%;
-      text-align: center;
-      z-index: 10;
-    }
-
-    .dot {
-      height: 12px;
-      width: 12px;
-      margin: 0 6px;
-      background-color: #bbb;
-      border-radius: 50%;
-      display: inline-block;
-      transition: background-color 0.3s ease;
-      cursor: pointer;
-    }
-
-    .dot.active {
-      background-color: white;
-    }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: auto;
-      overflow-x: hidden;
-    }
-    .bg-1 {
-      background-image: url('https://raw.githubusercontent.com/ulisesitera/cloudhawks-carousel/main/FONDO3.jpg');
-      background-size: cover;
-      background-position: center;
-    }
-
-    .bg-2 {
-      background-image: url('https://raw.githubusercontent.com/ulisesitera/cloudhawks-carousel/main/FONDO4.jpg');
-      background-size: cover;
-      background-position: center;
-    }
-
-    .bg-3 {
-      background-image: url('https://raw.githubusercontent.com/ulisesitera/cloudhawks-carousel/main/FONDO5.jpg');
-      background-size: cover;
-      background-position: center;
-    }
-
-    @media (max-width: 768px) {
-      .carousel-content {
-        flex-direction: column;
+      .carousel {
+        position: relative;
+        overflow: hidden;
+        min-height: 300px;
+        height: 50vh;
+        max-height: 600px;
+        width: 100%;
+      }
+      
+      .carousel-item {
+        position: relative;
+        min-width: 100%;
+        height: 100%;
+        display: flex;
         align-items: center;
+        justify-content: center;
+        color: #05334F;
+        padding: 20px;
+      }
+
+      .carousel-inner {
+        display: flex;
+        transition: transform 1s ease-in-out;
+        height: 100%;
+      }
+
+      .carousel-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        max-width: 900px;
+        gap: 20px;
+        padding-left: 60px;
       }
 
       .text-block {
-        padding-left: 0;
-        text-align: center;
+        flex: 1;
+        padding-left: 40px;
       }
 
-      .image-block img {
-        width: 100%;
-        height: auto;
-      }
-
-      .carousel-item {
-        padding: 10px;
-      }
-    }
-
-    @media (max-width: 480px) {
       .text-block h2 {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+        text-align: left;
+        font-weight: 900;
+      }
+
+      .text-block h2 a {
+        font-weight: 900;
       }
 
       .text-block p {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
+        text-align: left;
+        line-height: 1.5;
+        font-weight: 500;
+      }
+
+      .animate {
+        animation: fadeIn 2s ease-in-out;
+      }
+      
+      .image-block {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 200px;
       }
 
       .image-block img {
-        height: 150px; 
+        max-width: 100%;
+        height: 200px; 
+        object-fit: cover; 
+        border-radius: 10px;
       }
-    }
 
-  </style>
-</head>
-<body>
 
-  <div class="carousel-wrapper">
-    <div class="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active bg-1">
-          <div class="carousel-content">
-            <div class="text-block">
-              <h2>
-                <a href="https://sites.google.com/iteraprocess.com/itera-data-analytics/servicios/ai-driven-data-transformation" target="_blank" style="color: #026079; text-decoration: none;">
-                  AI-Driven Data Transformation
-                </a>
-              </h2>
-              <p>Convierte tus datos en decisiones con inteligencia artificial. Impulsa tu negocio con análisis avanzados y predicciones accionables, apoyado por el poder de la nube y tecnologías de IA que convierten la información en valor real.</p>
-            </div>
-            <div class="image-block">
-              <img src="https://raw.githubusercontent.com/ulisesitera/cloudhawks-carousel/main/Cloud1.png" alt="Cloud Illustration" />
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item bg-2">
-          <div class="carousel-content">
-            <div class="text-block">
-              <h2>
-                <a href="https://sites.google.com/iteraprocess.com/itera-data-analytics/servicios/advanced-analytics-and-insights" target="_blank" style="color: #026079; text-decoration: none;">
-                  Advanced Analytics and Insights
-                </a>
-              </h2>
-              <p>Convierte tus datos en decisiones con inteligencia artificial. Impulsa tu negocio con análisis avanzados y predicciones accionables, apoyado por el poder de la nube y tecnologías de IA que convierten la información en valor real.</p>
-            </div>
-            <div class="image-block">
-              <img src="https://raw.githubusercontent.com/ulisesitera/cloudhawks-carousel/main/Cloud2.png" alt="Cloud Illustration" />
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item bg-3">
-          <div class="carousel-content">
-            <div class="text-block">
-              <h2>
-                <a href="https://sites.google.com/iteraprocess.com/itera-data-analytics/servicios/cloud-native-and-aws-data-solutions" target="_blank" style="color: #026079; text-decoration: none;">
-                  Cloud Native and AWS Data Solutions
-                </a>
-              </h2>
-              <p>Convierte tus datos en decisiones con inteligencia artificial. Impulsa tu negocio con análisis avanzados y predicciones accionables, apoyado por el poder de la nube y tecnologías de IA que convierten la información en valor real.</p>
-            </div>
-            <div class="image-block">
-              <img src="https://raw.githubusercontent.com/ulisesitera/cloudhawks-carousel/main/Cloud3.png" alt="Cloud Illustration" />
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item bg-2">
-          <div class="carousel-content">
-            <div class="text-block">
-              <h2>
-                <a href="https://sites.google.com/iteraprocess.com/itera-data-analytics/servicios/data-governance-and-compliance" target="_blank" style="color: #026079; text-decoration: none;">
-                  Data Governance & Compliance
-                </a>
-              </h2>
-              <p>Convierte tus datos en decisiones con inteligencia artificial. Impulsa tu negocio con análisis avanzados y predicciones accionables, apoyado por el poder de la nube y tecnologías de IA que convierten la información en valor real.</p>
-            </div>
-            <div class="image-block">
-              <img src="https://raw.githubusercontent.com/ulisesitera/cloudhawks-carousel/main/Cloud1.png" alt="Cloud Illustration" />
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item bg-3">
-          <div class="carousel-content">
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .carousel-controls {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+        padding: 0 20px;
+        pointer-events: auto;
+      }
+
+      .control-btn {
+        background-color: rgba(0,0,0,0.5);
+        border: none;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+        pointer-events: auto;
+        border-radius: 50%;
+        padding: 10px 15px;
+      }
+
+      .control-btn:hover {
+        background-color: rgba(0,0,0,0.8);
+      }
+
+      .carousel-indicators {
+        position: absolute;
+        bottom: 15px;
+        width: 100%;
+        text-align: center;
+        z-index: 10;
+      }
+
+      .dot {
+        height: 12px;
+        width: 12px;
+        margin: 0 6px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+      }
+
+      .dot.active {
+        background-color: white;
+      }
+
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: auto;
+        overflow-x: hidden;
+      }
+      .bg-1 {
+        background-image: url('https://raw.githubusercontent.com/ulisesitera/cloudhawks-carousel/main/FONDO3.jpg');
+        background-size: cover;
+        background-position: center;
+      }
+
+      .bg-2 {
+        background-image: url('https://raw.githubusercontent.com/ulisesitera/cloudhawks-carousel/main/FONDO4.jpg');
+        background-size: cover;
+        background-position: center;
+      }
+
+      .bg-3 {
+        background-image: url('https://raw.githubusercontent.com/ulisesitera/cloudhawks-carousel/main/FONDO5.jpg');
+        background-size: cover;
+        background-position: center;
+      }
+
+      @media (max-width: 768px) {
+        .carousel-content {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .text-block {
+          padding-left: 0;
+          text-align: center;
+        }
+
+        .image-block img {
+          width: 100%;
+          height: auto;
+        }
+
+        .carousel-item {
+          padding: 10px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .text-block h2 {
+          font-size: 1.4rem;
+        }
+
+        .text-block p {
+          font-size: 0.8rem;
+        }
+
+        .image-block img {
+          height: 150px; 
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="carousel-wrapper">
+      <div class="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active bg-1">
             <div class="carousel-content">
-            <div class="text-block">
-              <h2>
-                <a href="https://sites.google.com/iteraprocess.com/itera-data-analytics/servicios/data-engineering-and-dataops" target="_blank" style="color: #026079; text-decoration: none;">
-                  Data Engineering and DataOps
-                </a>
-              </h2>
-              <p>Convierte tus datos en decisiones con inteligencia artificial. Impulsa tu negocio con análisis avanzados y predicciones accionables, apoyado por el poder de la nube y tecnologías de IA que convierten la información en valor real.</p>
-            </div>
-            <div class="image-block">
-              <img src="https://raw.githubusercontent.com/ulisesitera/cloudhawks-carousel/main/Cloud2.png" alt="Cloud Illustration" />
+              <div class="text-block">
+                <h2>
+                  <a href="https://sites.google.com/iteraprocess.com/itera-data-analytics/servicios/ai-driven-data-transformation" target="_blank" style="color: #026079; text-decoration: none;">
+                    AI-Driven Data Transformation
+                  </a>
+                </h2>
+                <p>Convierte tus datos en decisiones con inteligencia artificial. Impulsa tu negocio con análisis avanzados y predicciones accionables, apoyado por el poder de la nube y tecnologías de IA que convierten la información en valor real.</p>
+              </div>
+              <div class="image-block">
+                <img src="https://raw.githubusercontent.com/ulisesitera/cloudhawks-carousel/main/Cloud1.png" alt="Cloud Illustration" />
+              </div>
             </div>
           </div>
+          <div class="carousel-item bg-2">
+            <div class="carousel-content">
+              <div class="text-block">
+                <h2>
+                  <a href="https://sites.google.com/iteraprocess.com/itera-data-analytics/servicios/advanced-analytics-and-insights" target="_blank" style="color: #026079; text-decoration: none;">
+                    Advanced Analytics and Insights
+                  </a>
+                </h2>
+                <p>Optimiza decisiones con analítica avanzada en AWS. Creamos dashboards con KPIs clave, integramos herramientas como SAP y Snowflake, y aplicamos IA generativa con Amazon Q, todo con un enfoque consultivo y eficiente.</p>
+              </div>
+              <div class="image-block">
+                <img src="https://raw.githubusercontent.com/ulisesitera/cloudhawks-carousel/main/Cloud2.png" alt="Cloud Illustration" />
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item bg-3">
+            <div class="carousel-content">
+              <div class="text-block">
+                <h2>
+                  <a href="https://sites.google.com/iteraprocess.com/itera-data-analytics/servicios/cloud-native-and-aws-data-solutions" target="_blank" style="color: #026079; text-decoration: none;">
+                    Cloud Native and AWS Data Solutions
+                  </a>
+                </h2>
+                <p>Centraliza tus datos con Data Lakes y Warehouses en AWS. Rompe silos, automatiza reportes y toma decisiones ágiles con una solución segura, gobernada y de pago flexible.</p>
+              </div>
+              <div class="image-block">
+                <img src="https://raw.githubusercontent.com/ulisesitera/cloudhawks-carousel/main/Cloud3.png" alt="Cloud Illustration" />
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item bg-2">
+            <div class="carousel-content">
+              <div class="text-block">
+                <h2>
+                  <a href="https://sites.google.com/iteraprocess.com/itera-data-analytics/servicios/data-governance-and-compliance" target="_blank" style="color: #026079; text-decoration: none;">
+                    Data Governance & Compliance
+                  </a>
+                </h2>
+                <p>Asegura la calidad y cumplimiento de tus datos con nuestro modelo basado en DAMA. Protege tu información, evita riesgos legales y define el alcance ideal con opciones básicas, estándar o extendidas.</p>
+              </div>
+              <div class="image-block">
+                <img src="https://raw.githubusercontent.com/ulisesitera/cloudhawks-carousel/main/Cloud1.png" alt="Cloud Illustration" />
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item bg-3">
+            <div class="carousel-content">
+              <div class="carousel-content">
+              <div class="text-block">
+                <h2>
+                  <a href="https://sites.google.com/iteraprocess.com/itera-data-analytics/servicios/data-engineering-and-dataops" target="_blank" style="color: #026079; text-decoration: none;">
+                    Data Engineering and DataOps
+                  </a>
+                </h2>
+                <p>Convierte tus datos en decisiones con inteligencia artificial. Impulsa tu negocio con análisis avanzados y predicciones accionables, apoyado por el poder de la nube y tecnologías de IA que convierten la información en valor real.</p>
+              </div>
+              <div class="image-block">
+                <img src="https://raw.githubusercontent.com/ulisesitera/cloudhawks-carousel/main/Cloud2.png" alt="Cloud Illustration" />
+              </div>
+            </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Carousel buttons -->
-      <div class="carousel-controls">
-        <button class="control-btn" onclick="showPrevSlide()">&#10094;</button>
-        <button class="control-btn" onclick="showNextSlide()">&#10095;</button>
-      </div>
-      
-       <div class="carousel-indicators">
-        <span class="dot active" onclick="goToSlide(0)"></span>
-        <span class="dot" onclick="goToSlide(1)"></span>
-        <span class="dot" onclick="goToSlide(2)"></span>
-        <span class="dot" onclick="goToSlide(3)"></span>
-        <span class="dot" onclick="goToSlide(4)"></span>
+        <!-- Carousel buttons -->
+        <div class="carousel-controls">
+          <button class="control-btn" onclick="showPrevSlide()">&#10094;</button>
+          <button class="control-btn" onclick="showNextSlide()">&#10095;</button>
+        </div>
+        
+        <div class="carousel-indicators">
+          <span class="dot active" onclick="goToSlide(0)"></span>
+          <span class="dot" onclick="goToSlide(1)"></span>
+          <span class="dot" onclick="goToSlide(2)"></span>
+          <span class="dot" onclick="goToSlide(3)"></span>
+          <span class="dot" onclick="goToSlide(4)"></span>
+        </div>
       </div>
     </div>
-  </div>
 
-  <script>
-    let currentIndex = 0;
-    const items = document.querySelectorAll('.carousel-item');
-    const totalItems = items.length;
-    const carouselInner = document.querySelector('.carousel-inner');
-    const dots = document.querySelectorAll('.dot');
-    let autoSlideTimeout;
+    <script>
+      let currentIndex = 0;
+      const items = document.querySelectorAll('.carousel-item');
+      const totalItems = items.length;
+      const carouselInner = document.querySelector('.carousel-inner');
+      const dots = document.querySelectorAll('.dot');
+      let autoSlideTimeout;
 
-    function updateSlide() {
-        carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
-        dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentIndex);
-        });
+      function updateSlide() {
+          carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+          dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === currentIndex);
+          });
 
-        items.forEach(item => {
-            item.querySelector('.text-block h2')?.classList.remove('animate');
-            item.querySelector('.text-block p')?.classList.remove('animate');
-        });
+          items.forEach(item => {
+              item.querySelector('.text-block h2')?.classList.remove('animate');
+              item.querySelector('.text-block p')?.classList.remove('animate');
+          });
 
-        void items[currentIndex].offsetWidth;
+          void items[currentIndex].offsetWidth;
 
-        items[currentIndex].querySelector('.text-block h2')?.classList.add('animate');
-        items[currentIndex].querySelector('.text-block p')?.classList.add('animate');
-    }
+          items[currentIndex].querySelector('.text-block h2')?.classList.add('animate');
+          items[currentIndex].querySelector('.text-block p')?.classList.add('animate');
+      }
 
-    function showNextSlide() {
-        currentIndex = (currentIndex + 1) % totalItems;
-        updateSlide();
-        resetAutoSlide();
-    }
+      function showNextSlide() {
+          currentIndex = (currentIndex + 1) % totalItems;
+          updateSlide();
+          resetAutoSlide();
+      }
 
-    function showPrevSlide() {
-        currentIndex = (currentIndex - 1 + totalItems) % totalItems;
-        updateSlide();
-        resetAutoSlide();
-    }
+      function showPrevSlide() {
+          currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+          updateSlide();
+          resetAutoSlide();
+      }
 
-    function goToSlide(index) {
-        currentIndex = index;
-        updateSlide();
-        resetAutoSlide();
-    }
+      function goToSlide(index) {
+          currentIndex = index;
+          updateSlide();
+          resetAutoSlide();
+      }
 
-    function resetAutoSlide() {
-        clearTimeout(autoSlideTimeout);
-        autoSlideTimeout = setTimeout(showNextSlide, 5000);
-    }
+      function resetAutoSlide() {
+          clearTimeout(autoSlideTimeout);
+          autoSlideTimeout = setTimeout(showNextSlide, 6000);
+      }
 
-    resetAutoSlide();
-  </script>
+      resetAutoSlide();
+    </script>
 
-</body>
-</html>
+  </body>
+  </html>
